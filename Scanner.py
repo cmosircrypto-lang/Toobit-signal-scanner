@@ -41,7 +41,6 @@ def send_telegram(message):
     }
 
     try:
-
         response = requests.post(
             url,
             data=payload,
@@ -210,16 +209,9 @@ def atr(df, length=14):
 # SUPERTREND
 # =========================
 
-def supertrend(
-    df,
-    period=10,
-    factor=3.0
-):
+def supertrend(df, period=10, factor=3.0):
 
-    atr_value = atr(
-        df,
-        period
-    )
+    atr_value = atr(df, period)
 
     hl2 = (
         df["high"] +
@@ -261,15 +253,11 @@ def supertrend(
             upper.iloc[i - 1]
         ):
 
-            upper.iloc[i] = (
-                upper_basic.iloc[i]
-            )
+            upper.iloc[i] = upper_basic.iloc[i]
 
         else:
 
-            upper.iloc[i] = (
-                upper.iloc[i - 1]
-            )
+            upper.iloc[i] = upper.iloc[i - 1]
 
         if (
             lower_basic.iloc[i] >
@@ -279,15 +267,11 @@ def supertrend(
             lower.iloc[i - 1]
         ):
 
-            lower.iloc[i] = (
-                lower_basic.iloc[i]
-            )
+            lower.iloc[i] = lower_basic.iloc[i]
 
         else:
 
-            lower.iloc[i] = (
-                lower.iloc[i - 1]
-            )
+            lower.iloc[i] = lower.iloc[i - 1]
 
         if direction.iloc[i - 1] == 1:
 
@@ -317,15 +301,11 @@ def supertrend(
 
         if direction.iloc[i] == 1:
 
-            trend.iloc[i] = (
-                lower.iloc[i]
-            )
+            trend.iloc[i] = lower.iloc[i]
 
         else:
 
-            trend.iloc[i] = (
-                upper.iloc[i]
-            )
+            trend.iloc[i] = upper.iloc[i]
 
     return trend, direction
 
@@ -334,11 +314,7 @@ def supertrend(
 # STOCHASTIC
 # =========================
 
-def stochastic(
-    df,
-    length=14,
-    smooth=3
-):
+def stochastic(df, length=14, smooth=3):
 
     lowest = (
         df["low"]
@@ -603,7 +579,7 @@ def check_signal(symbol):
     state30 = timeframe_state(df30)
 
     # =========================
-    # LONG SCORE
+    # LONG
     # =========================
 
     long_score = 0
@@ -625,7 +601,8 @@ def check_signal(symbol):
 
     if (
         row["rsi"] > 50
-        and row["rsi"] > prev["rsi"]
+        and
+        row["rsi"] > prev["rsi"]
     ):
         long_score += 1
 
@@ -646,7 +623,7 @@ def check_signal(symbol):
         long_score += 1
 
     # =========================
-    # SHORT SCORE
+    # SHORT
     # =========================
 
     short_score = 0
@@ -822,6 +799,11 @@ print("========================================")
 print("TOOBIT STRONG SIGNAL SCANNER")
 print("========================================")
 
+# Telegram test
+send_telegram(
+    "✅ Toobit Signal Scanner - Telegram Test"
+)
+
 for symbol in SYMBOLS:
 
     try:
@@ -849,10 +831,6 @@ for symbol in SYMBOLS:
                     2
                 )
             )
-
-            # =========================
-            # TELEGRAM MESSAGE
-            # =========================
 
             message = (
                 "🚨 TOOBIT SIGNAL 🚨\n\n"

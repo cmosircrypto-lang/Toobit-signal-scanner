@@ -2,6 +2,8 @@ name: Toobit Signal Scanner
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   scan:
@@ -19,5 +21,8 @@ jobs:
       - name: Install requests
         run: pip install requests
 
-      - name: Check files
-        run: ls -la
+      - name: Run scanner
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python Scanner.py

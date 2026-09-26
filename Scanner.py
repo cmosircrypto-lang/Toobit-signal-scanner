@@ -14,23 +14,24 @@ symbols = [
 ]
 
 for symbol in symbols:
-    url = f"{BASE_URL}/quote/v1/klines"
-    params = {
-        "symbol": symbol,
-        "interval": "5m",
-        "limit": 5
-    }
-
     try:
-        response = requests.get(url, params=params, timeout=10)
+        response = requests.get(
+            f"{BASE_URL}/quote/v1/klines",
+            params={
+                "symbol": symbol,
+                "interval": "5m",
+                "limit": 5
+            },
+            timeout=10
+        )
+
         response.raise_for_status()
         data = response.json()
 
         if data:
-            close_price = data[-1][4]
-            print(symbol, "OK -", close_price)
+            print(symbol, "OK -", data[-1][4])
         else:
             print(symbol, "NO DATA")
 
     except Exception as e:
-        print(symbol, "ERROR:", e)
+        print(symbol, "ERROR -", e)

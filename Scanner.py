@@ -25,20 +25,23 @@ LIMIT = 300
 # VERY STRICT
 MIN_SCORE = 8
 
-# ADX must show a reasonably strong trend
+# Minimum ADX
 MIN_ADX = 25
 
-# ATR settings
+# ATR
 ATR_LENGTH = 14
+
+# Supertrend
+SUPERTREND_PERIOD = 10
+SUPERTREND_FACTOR = 3.0
 
 # Risk / Reward
 SL_ATR_MULTIPLIER = 1.5
 TP1_R = 1.0
 TP2_R = 2.0
 
-# Avoid duplicate signal on same candle
+# Duplicate protection
 last_signal = {}
-
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
@@ -71,13 +74,16 @@ def send_telegram(message):
         )
 
         if response.status_code == 200:
+
             print("Telegram: message sent")
 
         else:
+
             print(
                 "Telegram ERROR:",
                 response.status_code
             )
+
             print(response.text)
 
     except Exception as e:
@@ -131,7 +137,7 @@ def get_klines(symbol, interval):
             float(x[5])
         ])
 
-    return pd.DataFrame(
+    df = pd.DataFrame(
         rows,
         columns=[
             "time",
@@ -141,6 +147,12 @@ def get_klines(symbol, interval):
             "close",
             "volume"
         ]
+    )
+
+    return (
+        df
+        .sort_values("time")
+        .reset_index(drop=True)
     )
 
 
@@ -167,8 +179,13 @@ def calculate_rsi(
 
     delta = series.diff()
 
-    gain = delta.clip(lower=0)
-    loss = -delta.clip(upper=0)
+    gain = delta.clip(
+        lower=0
+    )
+
+    loss = -delta.clip(
+        upper=0
+    )
 
     avg_gain = gain.ewm(
         alpha=1 / length,
@@ -182,7 +199,10 @@ def calculate_rsi(
 
     rs = (
         avg_gain /
-        avg_loss.replace(0, np.nan)
+        avg_loss.replace(
+            0,
+            np.nan
+        )
     )
 
     return 100 - (
@@ -199,7 +219,9 @@ def calculate_atr(
     length=14
 ):
 
-    prev_close = df["close"].shift(1)
+    prev_close = (
+        df["close"].shift(1)
+    )
 
     tr = pd.concat(
         [
@@ -226,6 +248,15 @@ def calculate_atr(
 
 # =========================================================
 # SUPERTREND
+#
+# TradingView convention:
+#
+# direction < 0 = BULLISH / GREEN
+# direction > 0 = BEARISH / RED
+#
+# IMPORTANT:
+# The previous version had the direction-change
+# condition reversed.
 # =========================================================
 
 def calculate_supertrend(
@@ -244,37 +275,53 @@ def calculate_supertrend(
         df["low"]
     ) / 2
 
-    upperband = (
+    basic_upper = (
         hl2 +
         multiplier * atr
     )
 
-    lowerband = (
+    basic_lower = (
         hl2 -
         multiplier * atr
     )
 
-    final_upper = upperband.copy()
-    final_lower = lowerband.copy()
+    final_upper = (
+        basic_upper.copy()
+    )
+
+    final_lower = (
+        basic_lower.copy()
+    )
 
     direction = pd.Series(
-        1,
+        1.0,
+        index=df.index
+    )
+
+    supertrend = pd.Series(
+        np.nan,
         index=df.index,
         dtype=float
     )
 
     for i in range(1, len(df)):
 
+        # -------------------------------------------------
+        # FINAL UPPER BAND
+        # -------------------------------------------------
+
         if (
-            upperband.iloc[i] <
+            basic_upper.iloc[i]
+            <
             final_upper.iloc[i - 1]
             or
-            df["close"].iloc[i - 1] >
+            df["close"].iloc[i - 1]
+            >
             final_upper.iloc[i - 1]
         ):
 
             final_upper.iloc[i] = (
-                upperband.iloc[i]
+                basic_upper.iloc[i]
             )
 
         else:
@@ -283,16 +330,22 @@ def calculate_supertrend(
                 final_upper.iloc[i - 1]
             )
 
+        # -------------------------------------------------
+        # FINAL LOWER BAND
+        # -------------------------------------------------
+
         if (
-            lowerband.iloc[i] >
+            basic_lower.iloc[i]
+            >
             final_lower.iloc[i - 1]
             or
-            df["close"].iloc[i - 1] <
+            df["close"].iloc[i - 1]
+            <
             final_lower.iloc[i - 1]
         ):
 
             final_lower.iloc[i] = (
-                lowerband.iloc[i]
+                basic_lower.iloc[i]
             )
 
         else:
@@ -301,33 +354,64 @@ def calculate_supertrend(
                 final_lower.iloc[i - 1]
             )
 
-        if direction.iloc[i - 1] == 1:
+        # -------------------------------------------------
+        # DIRECTION
+        #
+        # Previous direction BEARISH:
+        # price above upper band -> BULLISH
+        #
+        # Previous direction BULLISH:
+        # price below lower band -> BEARISH
+        # -------------------------------------------------
+
+        if direction.iloc[i - 1] > 0:
 
             if (
-                df["close"].iloc[i] <=
+                df["close"].iloc[i]
+                >
                 final_upper.iloc[i]
             ):
 
-                direction.iloc[i] = -1
+                direction.iloc[i] = -1.0
 
             else:
 
-                direction.iloc[i] = 1
+                direction.iloc[i] = 1.0
 
         else:
 
             if (
-                df["close"].iloc[i] >=
+                df["close"].iloc[i]
+                <
                 final_lower.iloc[i]
             ):
 
-                direction.iloc[i] = 1
+                direction.iloc[i] = 1.0
 
             else:
 
-                direction.iloc[i] = -1
+                direction.iloc[i] = -1.0
 
-    return direction
+        # -------------------------------------------------
+        # SUPERTREND LINE
+        # -------------------------------------------------
+
+        if direction.iloc[i] < 0:
+
+            supertrend.iloc[i] = (
+                final_lower.iloc[i]
+            )
+
+        else:
+
+            supertrend.iloc[i] = (
+                final_upper.iloc[i]
+            )
+
+    return (
+        direction,
+        supertrend
+    )
 
 
 # =========================================================
@@ -365,7 +449,8 @@ def calculate_stochastic(
         (
             df["close"] -
             lowest_low
-        ) /
+        )
+        /
         denominator
     )
 
@@ -373,7 +458,10 @@ def calculate_stochastic(
         smooth
     ).mean()
 
-    return k, d
+    return (
+        k,
+        d
+    )
 
 
 # =========================================================
@@ -390,6 +478,7 @@ def calculate_adx(
     close = df["close"]
 
     up_move = high.diff()
+
     down_move = -low.diff()
 
     plus_dm = pd.Series(
@@ -397,7 +486,8 @@ def calculate_adx(
             (
                 up_move >
                 down_move
-            ) &
+            )
+            &
             (
                 up_move > 0
             ),
@@ -412,7 +502,8 @@ def calculate_adx(
             (
                 down_move >
                 up_move
-            ) &
+            )
+            &
             (
                 down_move > 0
             ),
@@ -422,7 +513,9 @@ def calculate_adx(
         index=df.index
     )
 
-    prev_close = close.shift(1)
+    prev_close = (
+        close.shift(1)
+    )
 
     tr = pd.concat(
         [
@@ -451,7 +544,8 @@ def calculate_adx(
         plus_dm.ewm(
             alpha=1 / length,
             adjust=False
-        ).mean() /
+        ).mean()
+        /
         atr
     )
 
@@ -460,7 +554,8 @@ def calculate_adx(
         minus_dm.ewm(
             alpha=1 / length,
             adjust=False
-        ).mean() /
+        ).mean()
+        /
         atr
     )
 
@@ -469,7 +564,8 @@ def calculate_adx(
         (
             plus_di -
             minus_di
-        ).abs() /
+        ).abs()
+        /
         (
             plus_di +
             minus_di
@@ -499,6 +595,7 @@ def prepare_dataframe(df):
 
     df = df.copy()
 
+    # EMA
     df["ema20"] = ema(
         df["close"],
         20
@@ -509,28 +606,39 @@ def prepare_dataframe(df):
         200
     )
 
+    # RSI
     df["rsi"] = calculate_rsi(
         df["close"],
         14
     )
 
+    # ATR
     df["atr"] = calculate_atr(
         df,
         ATR_LENGTH
     )
 
-    df["st"] = calculate_supertrend(
+    # Supertrend
+    (
+        df["st"],
+        df["supertrend"]
+    ) = calculate_supertrend(
         df,
-        10,
-        3.0
+        SUPERTREND_PERIOD,
+        SUPERTREND_FACTOR
     )
 
-    df["k"], df["d"] = calculate_stochastic(
+    # Stochastic
+    (
+        df["k"],
+        df["d"]
+    ) = calculate_stochastic(
         df,
         14,
         3
     )
 
+    # ADX
     (
         df["adx"],
         df["plus_di"],
@@ -540,7 +648,7 @@ def prepare_dataframe(df):
         14
     )
 
-    # Volume confirmation
+    # Volume
     df["volume_ma"] = (
         df["volume"]
         .rolling(20)
@@ -560,87 +668,209 @@ def check_signal(
     df30
 ):
 
-    df5 = prepare_dataframe(df5)
-    df15 = prepare_dataframe(df15)
-    df30 = prepare_dataframe(df30)
+    df5 = prepare_dataframe(
+        df5
+    )
 
-    # Last CLOSED candles
+    df15 = prepare_dataframe(
+        df15
+    )
+
+    df30 = prepare_dataframe(
+        df30
+    )
+
+    # -----------------------------------------------------
+    # ONLY CLOSED CANDLES
+    # -----------------------------------------------------
+
     cur = df5.iloc[-2]
 
     tf15 = df15.iloc[-2]
+
     tf30 = df30.iloc[-2]
 
-    # -----------------------------------------------------
-    # 30 MINUTE TREND
-    # -----------------------------------------------------
+    # =====================================================
+    # 30 MINUTE LONG
+    # ALL CONDITIONS ARE REQUIRED
+    # =====================================================
 
     long_30 = (
+
         tf30["close"] >
         tf30["ema20"]
+
         and
+
         tf30["ema20"] >
         tf30["ema200"]
+
         and
+
         tf30["st"] < 0
+
         and
-        tf30["adx"] >= MIN_ADX
+
+        tf30["adx"] >=
+        MIN_ADX
+
         and
+
         tf30["plus_di"] >
         tf30["minus_di"]
     )
 
+    # =====================================================
+    # 30 MINUTE SHORT
+    # =====================================================
+
     short_30 = (
+
         tf30["close"] <
         tf30["ema20"]
+
         and
+
         tf30["ema20"] <
         tf30["ema200"]
+
         and
+
         tf30["st"] > 0
+
         and
-        tf30["adx"] >= MIN_ADX
+
+        tf30["adx"] >=
+        MIN_ADX
+
         and
+
         tf30["minus_di"] >
         tf30["plus_di"]
     )
 
-    # -----------------------------------------------------
-    # 15 MINUTE CONFIRMATION
-    # -----------------------------------------------------
+    # =====================================================
+    # 15 MINUTE LONG
+    # =====================================================
 
     long_15 = (
+
         tf15["close"] >
         tf15["ema20"]
+
         and
+
         tf15["ema20"] >
         tf15["ema200"]
+
         and
+
         tf15["st"] < 0
+
         and
-        tf15["adx"] >= MIN_ADX
+
+        tf15["adx"] >=
+        MIN_ADX
+
         and
+
         tf15["plus_di"] >
         tf15["minus_di"]
     )
 
+    # =====================================================
+    # 15 MINUTE SHORT
+    # =====================================================
+
     short_15 = (
+
         tf15["close"] <
         tf15["ema20"]
+
         and
+
         tf15["ema20"] <
         tf15["ema200"]
+
         and
+
         tf15["st"] > 0
+
         and
-        tf15["adx"] >= MIN_ADX
+
+        tf15["adx"] >=
+        MIN_ADX
+
         and
+
         tf15["minus_di"] >
         tf15["plus_di"]
     )
 
-    # -----------------------------------------------------
+    # =====================================================
+    # 5 MINUTE LONG HARD FILTER
+    #
+    # This is now MANDATORY.
+    # =====================================================
+
+    long_5_hard = (
+
+        cur["close"] >
+        cur["ema20"]
+
+        and
+
+        cur["ema20"] >
+        cur["ema200"]
+
+        and
+
+        cur["st"] < 0
+
+        and
+
+        cur["adx"] >=
+        MIN_ADX
+
+        and
+
+        cur["plus_di"] >
+        cur["minus_di"]
+    )
+
+    # =====================================================
+    # 5 MINUTE SHORT HARD FILTER
+    # =====================================================
+
+    short_5_hard = (
+
+        cur["close"] <
+        cur["ema20"]
+
+        and
+
+        cur["ema20"] <
+        cur["ema200"]
+
+        and
+
+        cur["st"] > 0
+
+        and
+
+        cur["adx"] >=
+        MIN_ADX
+
+        and
+
+        cur["minus_di"] >
+        cur["plus_di"]
+    )
+
+    # =====================================================
     # LONG SCORE
-    # -----------------------------------------------------
+    # MAX = 9
+    # =====================================================
 
     long_score = 0
 
@@ -680,24 +910,15 @@ def check_signal(
     ):
         long_score += 1
 
-    # ADX + DI is mandatory confirmation,
-    # not an extra point in the 9-point score.
-    long_adx_ok = (
-        cur["adx"] >= MIN_ADX
-        and
-        cur["plus_di"] >
-        cur["minus_di"]
-    )
-
-    # Volume confirmation
     long_volume_ok = (
         cur["volume"] >=
         cur["volume_ma"] * 0.8
     )
 
-    # -----------------------------------------------------
+    # =====================================================
     # SHORT SCORE
-    # -----------------------------------------------------
+    # MAX = 9
+    # =====================================================
 
     short_score = 0
 
@@ -737,114 +958,197 @@ def check_signal(
     ):
         short_score += 1
 
-    short_adx_ok = (
-        cur["adx"] >= MIN_ADX
-        and
-        cur["minus_di"] >
-        cur["plus_di"]
-    )
-
     short_volume_ok = (
         cur["volume"] >=
         cur["volume_ma"] * 0.8
     )
 
-    # -----------------------------------------------------
+    # =====================================================
     # LONG SIGNAL
-    # -----------------------------------------------------
+    #
+    # IMPORTANT:
+    #
+    # 5m + 15m + 30m MUST all agree.
+    #
+    # Score cannot override a failed trend filter.
+    # =====================================================
 
     if (
-        long_score >= MIN_SCORE
+
+        long_score >=
+        MIN_SCORE
+
         and
-        long_30
+
+        long_5_hard
+
         and
+
         long_15
+
         and
-        long_adx_ok
+
+        long_30
+
         and
+
         long_volume_ok
     ):
 
-        entry = float(cur["close"])
-        atr = float(cur["atr"])
+        entry = float(
+            cur["close"]
+        )
+
+        atr = float(
+            cur["atr"]
+        )
 
         sl = (
             entry -
-            atr * SL_ATR_MULTIPLIER
+            atr *
+            SL_ATR_MULTIPLIER
         )
 
-        risk = entry - sl
+        risk = (
+            entry -
+            sl
+        )
 
         tp1 = (
             entry +
-            risk * TP1_R
+            risk *
+            TP1_R
         )
 
         tp2 = (
             entry +
-            risk * TP2_R
+            risk *
+            TP2_R
         )
 
         return {
-            "direction": "LONG",
-            "score": long_score,
-            "price": entry,
-            "entry": entry,
-            "tp1": tp1,
-            "tp2": tp2,
-            "sl": sl,
-            "rsi": float(cur["rsi"]),
-            "adx": float(cur["adx"]),
-            "candle_time": cur["time"]
+
+            "direction":
+            "LONG",
+
+            "score":
+            long_score,
+
+            "price":
+            entry,
+
+            "entry":
+            entry,
+
+            "tp1":
+            tp1,
+
+            "tp2":
+            tp2,
+
+            "sl":
+            sl,
+
+            "rsi":
+            float(cur["rsi"]),
+
+            "adx":
+            float(cur["adx"]),
+
+            "candle_time":
+            cur["time"]
         }
 
-    # -----------------------------------------------------
+    # =====================================================
     # SHORT SIGNAL
-    # -----------------------------------------------------
+    #
+    # 5m + 15m + 30m MUST all agree.
+    # =====================================================
 
     if (
-        short_score >= MIN_SCORE
+
+        short_score >=
+        MIN_SCORE
+
         and
-        short_30
+
+        short_5_hard
+
         and
+
         short_15
+
         and
-        short_adx_ok
+
+        short_30
+
         and
+
         short_volume_ok
     ):
 
-        entry = float(cur["close"])
-        atr = float(cur["atr"])
+        entry = float(
+            cur["close"]
+        )
+
+        atr = float(
+            cur["atr"]
+        )
 
         sl = (
             entry +
-            atr * SL_ATR_MULTIPLIER
+            atr *
+            SL_ATR_MULTIPLIER
         )
 
-        risk = sl - entry
+        risk = (
+            sl -
+            entry
+        )
 
         tp1 = (
             entry -
-            risk * TP1_R
+            risk *
+            TP1_R
         )
 
         tp2 = (
             entry -
-            risk * TP2_R
+            risk *
+            TP2_R
         )
 
         return {
-            "direction": "SHORT",
-            "score": short_score,
-            "price": entry,
-            "entry": entry,
-            "tp1": tp1,
-            "tp2": tp2,
-            "sl": sl,
-            "rsi": float(cur["rsi"]),
-            "adx": float(cur["adx"]),
-            "candle_time": cur["time"]
+
+            "direction":
+            "SHORT",
+
+            "score":
+            short_score,
+
+            "price":
+            entry,
+
+            "entry":
+            entry,
+
+            "tp1":
+            tp1,
+
+            "tp2":
+            tp2,
+
+            "sl":
+            sl,
+
+            "rsi":
+            float(cur["rsi"]),
+
+            "adx":
+            float(cur["adx"]),
+
+            "candle_time":
+            cur["time"]
         }
 
     return None
@@ -857,12 +1161,15 @@ def check_signal(
 def format_price(price):
 
     if price >= 1000:
+
         return f"{price:.2f}"
 
     if price >= 1:
+
         return f"{price:.4f}"
 
     if price >= 0.1:
+
         return f"{price:.5f}"
 
     return f"{price:.7f}"
@@ -874,15 +1181,47 @@ def format_price(price):
 
 def main():
 
-    print("========================================")
-    print("TOOBIT VERY STRICT SIGNAL SCANNER")
-    print("========================================")
+    print(
+        "========================================"
+    )
+
+    print(
+        "TOOBIT VERY STRICT SIGNAL SCANNER"
+    )
+
+    print(
+        "========================================"
+    )
+
+    print(
+        "Supertrend: TradingView-style"
+    )
+
+    print(
+        "5m + 15m + 30m alignment: REQUIRED"
+    )
+
+    print(
+        f"Minimum Score: {MIN_SCORE}/9"
+    )
+
+    print(
+        f"Minimum ADX: {MIN_ADX}"
+    )
+
+    print(
+        "========================================"
+    )
 
     signals_found = []
 
     for symbol in SYMBOLS:
 
         try:
+
+            # -----------------------------------------
+            # GET DATA
+            # -----------------------------------------
 
             df5 = get_klines(
                 symbol,
@@ -899,6 +1238,10 @@ def main():
                 "30m"
             )
 
+            # -----------------------------------------
+            # CHECK SIGNAL
+            # -----------------------------------------
+
             signal = check_signal(
                 df5,
                 df15,
@@ -907,13 +1250,23 @@ def main():
 
             if signal:
 
-                candle_time = signal[
-                    "candle_time"
-                ]
+                candle_time = (
+                    signal[
+                        "candle_time"
+                    ]
+                )
 
-                # Prevent duplicate signal
-                # for the same symbol/candle
-                if last_signal.get(symbol) == candle_time:
+                # -------------------------------------
+                # DUPLICATE CHECK
+                # -------------------------------------
+
+                if (
+                    last_signal.get(
+                        symbol
+                    )
+                    ==
+                    candle_time
+                ):
 
                     print(
                         f"{symbol} | "
@@ -922,7 +1275,9 @@ def main():
 
                     continue
 
-                last_signal[symbol] = candle_time
+                last_signal[
+                    symbol
+                ] = candle_time
 
                 signals_found.append(
                     (
@@ -954,7 +1309,7 @@ def main():
             )
 
     # =====================================================
-    # ONLY SEND THE STRONGEST SIGNAL
+    # NO SIGNAL
     # =====================================================
 
     if not signals_found:
@@ -965,19 +1320,31 @@ def main():
 
         return
 
-    # Sort by score
+    # =====================================================
+    # SELECT STRONGEST SIGNAL
+    # =====================================================
+
     signals_found.sort(
-        key=lambda x: x[1]["score"],
+        key=lambda x:
+        x[1]["score"],
         reverse=True
     )
 
-    symbol, signal = signals_found[0]
+    symbol, signal = (
+        signals_found[0]
+    )
+
+    # =====================================================
+    # TELEGRAM MESSAGE
+    # =====================================================
 
     message = (
+
         "🚨 TOOBIT HIGH QUALITY SIGNAL\n\n"
 
         f"Position: "
-        f"STRONG {signal['direction']}\n"
+        f"STRONG "
+        f"{signal['direction']}\n"
 
         f"Symbol: "
         f"{symbol}\n"
@@ -985,7 +1352,7 @@ def main():
         f"Score: "
         f"{signal['score']}/9\n"
 
-        f"Current Price: "
+        f"Signal Price: "
         f"{format_price(signal['price'])}\n\n"
 
         f"Entry: "
@@ -1007,19 +1374,45 @@ def main():
         f"{signal['adx']:.2f}\n\n"
 
         "Timeframe: 5m\n"
+
         "Confirmation: 15m + 30m\n"
-        "Risk Filter: STRICT"
+
+        "Risk Filter: VERY STRICT"
     )
 
-    print("\n========================================")
-    print("SELECTED SIGNAL")
-    print("========================================")
-    print(message)
+    # =====================================================
+    # PRINT
+    # =====================================================
 
-    send_telegram(message)
+    print(
+        "\n========================================"
+    )
+
+    print(
+        "SELECTED SIGNAL"
+    )
+
+    print(
+        "========================================"
+    )
+
+    print(
+        message
+    )
+
+    # =====================================================
+    # SEND TELEGRAM
+    # =====================================================
+
+    send_telegram(
+        message
+    )
 
 
 # =========================================================
+# RUN
+# =========================================================
 
 if __name__ == "__main__":
+
     main()

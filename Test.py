@@ -1,1 +1,0 @@
-print("TOOBIT SCANNER IS RUNNING")

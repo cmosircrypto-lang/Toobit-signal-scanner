@@ -3,105 +3,6 @@
     "BTC": [
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 83976.9,
-        "open": 83898.6,
-        "high": 83992.9,
-        "low": 83876.0,
-        "30m": {
-          "bull": false,
-          "bear": false,
-          "close": 83873.1,
-          "ema20": 83395.51442106997,
-          "ema200": 84159.58993115889,
-          "st_dir": -1.0
-        },
-        "15m": {
-          "bull": false,
-          "bear": false,
-          "close": 83976.9,
-          "ema20": 83522.59857358935,
-          "ema200": 83825.80368395773,
-          "st_dir": -1.0
-        },
-        "5m": {
-          "close": 83976.9,
-          "ema20": 83748.50257405044,
-          "ema200": 83449.56949450402,
-          "st_dir": -1.0,
-          "st_line": 83402.25683866565,
-          "rsi": 59.39283228763486,
-          "rsi_prev": 57.43728335490444,
-          "k": 46.188975105076175,
-          "d": 45.43117831275443,
-          "adx": 27.916551513030353,
-          "di_plus": 31.84683552543142,
-          "di_minus": 15.542103883468421,
-          "atr14": 204.52396258685306,
-          "distance_from_ema_atr": 1.1167269744862673,
-          "candle_size": 78.29999999998836
-        },
-        "LONG": {
-          "score": 5,
-          "core": false,
-          "local": true,
-          "ema": true,
-          "supertrend": true,
-          "rsi": true,
-          "stochastic": false,
-          "adx_di": true,
-          "distance": true,
-          "candle_size": true,
-          "sr": false,
-          "candle_direction": true,
-          "final": false,
-          "failed": [
-            "core",
-            "near_resistance"
-          ]
-        },
-        "SHORT": {
-          "score": 0,
-          "core": false,
-          "local": false,
-          "ema": false,
-          "supertrend": false,
-          "rsi": false,
-          "stochastic": false,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": true,
-          "candle_direction": false,
-          "final": false,
-          "failed": [
-            "score<5",
-            "core",
-            "bullish_candle"
-          ]
-        },
-        "support_resistance": {
-          "support": 83525.2,
-          "resistance": 84163.3,
-          "near_support": false,
-          "near_resistance": true
-        },
-        "signal": {
-          "direction": null,
-          "score": null,
-          "entry": null,
-          "sl": null,
-          "tp1": null,
-          "tp2": null
-        },
-        "scan_time_utc": "2026-09-28T17:49:44.153678+00:00",
-        "symbol": "BTC",
-        "toobit_symbol": "BTC-SWAP-USDT",
-        "active_before_new_signal": false,
-        "state_result": "NO_V24_SIGNAL"
-      },
-      {
-        "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
         "price": 83834.1,
         "open": 83880.5,
@@ -9993,74 +9894,53 @@
         "toobit_symbol": "BTC-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "SOL": [
+      },
       {
-        "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 119.89,
-        "open": 119.72,
-        "high": 119.92,
-        "low": 119.66,
+        "status": "SIGNAL",
+        "candle_time": 1790710800000,
+        "price": 83400.0,
+        "open": 83513.6,
+        "high": 83513.7,
+        "low": 83400.0,
         "30m": {
           "bull": false,
-          "bear": false,
-          "close": 119.62,
-          "ema20": 119.13378039398194,
-          "ema200": 119.921020681054,
+          "bear": true,
+          "close": 83519.0,
+          "ema20": 83530.76723146244,
+          "ema200": 83813.57913293607,
           "st_dir": 1.0
         },
         "15m": {
           "bull": false,
-          "bear": false,
-          "close": 119.89,
-          "ema20": 119.18138879748341,
-          "ema200": 120.51965585879962,
-          "st_dir": -1.0
+          "bear": true,
+          "close": 83400.0,
+          "ema20": 83436.36819274738,
+          "ema200": 83666.68651039035,
+          "st_dir": 1.0
         },
         "5m": {
-          "close": 119.89,
-          "ema20": 119.40479506559825,
-          "ema200": 119.4348091947986,
+          "close": 83400.0,
+          "ema20": 83479.0668774128,
+          "ema200": 83598.09673691668,
           "st_dir": -1.0,
-          "st_line": 118.45551466963794,
-          "rsi": 57.38673080005736,
-          "rsi_prev": 55.61345828638583,
-          "k": 56.26911314984701,
-          "d": 54.230377166156934,
-          "adx": 19.47493488808645,
-          "di_plus": 30.144989312626233,
-          "di_minus": 19.534669398786768,
-          "atr14": 0.5055611782413724,
-          "distance_from_ema_atr": 0.9597353501104797,
-          "candle_size": 0.1700000000000017
+          "st_line": 83318.86354601652,
+          "rsi": 46.57782022339764,
+          "rsi_prev": 54.81953726610816,
+          "k": 35.82022973123712,
+          "d": 49.5384506802225,
+          "adx": 25.63992399485386,
+          "di_plus": 19.164878378536677,
+          "di_minus": 22.657137360590802,
+          "atr14": 101.49572589737808,
+          "distance_from_ema_atr": 0.7790168178386461,
+          "candle_size": 113.60000000000582
         },
         "LONG": {
-          "score": 4,
-          "core": false,
-          "local": true,
-          "ema": false,
-          "supertrend": true,
-          "rsi": true,
-          "stochastic": true,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": true,
-          "candle_direction": true,
-          "final": false,
-          "failed": [
-            "score<5",
-            "core"
-          ]
-        },
-        "SHORT": {
           "score": 1,
           "core": false,
           "local": false,
-          "ema": true,
-          "supertrend": false,
+          "ema": false,
+          "supertrend": true,
           "rsi": false,
           "stochastic": false,
           "adx_di": false,
@@ -10072,29 +9952,49 @@
           "failed": [
             "score<5",
             "core",
-            "bullish_candle"
+            "bearish_candle"
           ]
         },
+        "SHORT": {
+          "score": 7,
+          "core": true,
+          "local": true,
+          "ema": true,
+          "supertrend": false,
+          "rsi": false,
+          "stochastic": true,
+          "adx_di": true,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": true,
+          "final": true,
+          "failed": []
+        },
         "support_resistance": {
-          "support": 118.52,
-          "resistance": 120.31,
+          "support": 82933.9,
+          "resistance": 83674.0,
           "near_support": false,
           "near_resistance": false
         },
         "signal": {
-          "direction": null,
-          "score": null,
-          "entry": null,
-          "sl": null,
-          "tp1": null,
-          "tp2": null
+          "direction": "SHORT",
+          "score": 7,
+          "entry": 83400.0,
+          "sl": 83552.24358884606,
+          "tp1": 83247.75641115394,
+          "tp2": 83095.51282230786
         },
-        "scan_time_utc": "2026-09-28T17:49:44.986602+00:00",
-        "symbol": "SOL",
-        "toobit_symbol": "SOL-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:39.117630+00:00",
+        "symbol": "BTC",
+        "toobit_symbol": "BTC-SWAP-USDT",
         "active_before_new_signal": false,
-        "state_result": "NO_V24_SIGNAL"
-      },
+        "state_result": "NEW_SIGNAL_ACCEPTED",
+        "cooldown_ok": true,
+        "duplicate_ok": true
+      }
+    ],
+    "SOL": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -19938,75 +19838,55 @@
         "toobit_symbol": "SOL-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "ETH": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 2700.48,
-        "open": 2697.47,
-        "high": 2703.06,
-        "low": 2697.11,
+        "candle_time": 1790710800000,
+        "price": 118.7,
+        "open": 119.2,
+        "high": 119.23,
+        "low": 118.7,
         "30m": {
           "bull": false,
           "bear": false,
-          "close": 2698.34,
-          "ema20": 2674.186547747303,
-          "ema200": 2687.1753167659895,
-          "st_dir": -1.0
+          "close": 119.22,
+          "ema20": 118.98135618032832,
+          "ema200": 119.26713945256367,
+          "st_dir": 1.0
         },
         "15m": {
-          "bull": true,
-          "bear": false,
-          "close": 2700.48,
-          "ema20": 2683.1672195424017,
-          "ema200": 2679.1289515184885,
-          "st_dir": -1.0
+          "bull": false,
+          "bear": true,
+          "close": 118.7,
+          "ema20": 118.84701213403089,
+          "ema200": 119.46036734701948,
+          "st_dir": 1.0
         },
         "5m": {
-          "close": 2700.48,
-          "ema20": 2692.0893180166154,
-          "ema200": 2671.601768257105,
+          "close": 118.7,
+          "ema20": 118.94894167059773,
+          "ema200": 119.04802912942338,
           "st_dir": -1.0,
-          "st_line": 2682.480536660864,
-          "rsi": 57.51718701958414,
-          "rsi_prev": 55.83642570871718,
-          "k": 48.01090792428596,
-          "d": 49.92755560040846,
-          "adx": 19.404749705006214,
-          "di_plus": 30.86056347926953,
-          "di_minus": 19.702571481796603,
-          "atr14": 8.842270550660894,
-          "distance_from_ema_atr": 0.9489284381552312,
-          "candle_size": 3.0100000000002183
+          "st_line": 118.56792079790299,
+          "rsi": 45.62243302365595,
+          "rsi_prev": 60.20479464279574,
+          "k": 48.29931972789105,
+          "d": 66.22353836639523,
+          "adx": 30.458921992729955,
+          "di_plus": 22.06341418626027,
+          "di_minus": 22.78115021998072,
+          "atr14": 0.2745915601961488,
+          "distance_from_ema_atr": 0.9065889367462868,
+          "candle_size": 0.5
         },
         "LONG": {
-          "score": 5,
-          "core": false,
-          "local": true,
-          "ema": true,
-          "supertrend": true,
-          "rsi": true,
-          "stochastic": false,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": true,
-          "candle_direction": true,
-          "final": false,
-          "failed": [
-            "core"
-          ]
-        },
-        "SHORT": {
           "score": 1,
           "core": false,
           "local": false,
           "ema": false,
-          "supertrend": false,
+          "supertrend": true,
           "rsi": false,
-          "stochastic": true,
+          "stochastic": false,
           "adx_di": false,
           "distance": true,
           "candle_size": true,
@@ -20016,12 +19896,30 @@
           "failed": [
             "score<5",
             "core",
-            "bullish_candle"
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
+          "score": 5,
+          "core": false,
+          "local": true,
+          "ema": true,
+          "supertrend": false,
+          "rsi": false,
+          "stochastic": true,
+          "adx_di": true,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": true,
+          "final": false,
+          "failed": [
+            "core"
           ]
         },
         "support_resistance": {
-          "support": 2678.44,
-          "resistance": 2720.0,
+          "support": 117.29,
+          "resistance": 119.51,
           "near_support": false,
           "near_resistance": false
         },
@@ -20033,12 +19931,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:45.730755+00:00",
-        "symbol": "ETH",
-        "toobit_symbol": "ETH-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:39.878281+00:00",
+        "symbol": "SOL",
+        "toobit_symbol": "SOL-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      },
+      }
+    ],
+    "ETH": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -29906,57 +29806,75 @@
         "toobit_symbol": "ETH-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "XRP": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 1.5063,
-        "open": 1.5057,
-        "high": 1.509,
-        "low": 1.5053,
+        "candle_time": 1790710800000,
+        "price": 2688.5,
+        "open": 2694.69,
+        "high": 2694.69,
+        "low": 2688.5,
         "30m": {
           "bull": false,
           "bear": false,
-          "close": 1.5044,
-          "ema20": 1.4990293762232854,
-          "ema200": 1.523654732752947,
-          "st_dir": -1.0
+          "close": 2694.28,
+          "ema20": 2694.3586515662655,
+          "ema200": 2684.3826392414694,
+          "st_dir": 1.0
         },
         "15m": {
           "bull": false,
-          "bear": true,
-          "close": 1.5063,
-          "ema20": 1.5011828097102993,
-          "ema200": 1.5157312026423675,
+          "bear": false,
+          "close": 2688.5,
+          "ema20": 2689.989638513509,
+          "ema200": 2687.9463780199367,
           "st_dir": 1.0
         },
         "5m": {
-          "close": 1.5063,
-          "ema20": 1.5025976470441824,
-          "ema200": 1.499359005153112,
+          "close": 2688.5,
+          "ema20": 2690.8780454464486,
+          "ema200": 2695.466843346881,
           "st_dir": -1.0,
-          "st_line": 1.4847582511738124,
-          "rsi": 53.58753920934722,
-          "rsi_prev": 53.15888366720853,
-          "k": 50.99408729229222,
-          "d": 49.4309699064709,
-          "adx": 21.328920066946413,
-          "di_plus": 31.15045357037728,
-          "di_minus": 17.581549910427118,
-          "atr14": 0.007699781235846933,
-          "distance_from_ema_atr": 0.48083872027181274,
-          "candle_size": 0.0005999999999999339
+          "st_line": 2683.32603605254,
+          "rsi": 48.13812872544233,
+          "rsi_prev": 60.623415554484886,
+          "k": 50.50581167375119,
+          "d": 68.09277088700385,
+          "adx": 30.23849997026319,
+          "di_plus": 19.246674337682062,
+          "di_minus": 18.729692820262823,
+          "atr14": 4.394851915195896,
+          "distance_from_ema_atr": 0.5410979692458185,
+          "candle_size": 6.190000000000055
         },
         "LONG": {
-          "score": 4,
+          "score": 2,
+          "core": false,
+          "local": false,
+          "ema": false,
+          "supertrend": true,
+          "rsi": false,
+          "stochastic": false,
+          "adx_di": true,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": false,
+          "final": false,
+          "failed": [
+            "score<5",
+            "core",
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
+          "score": 2,
           "core": false,
           "local": true,
           "ema": true,
-          "supertrend": true,
+          "supertrend": false,
           "rsi": false,
-          "stochastic": true,
+          "stochastic": false,
           "adx_di": false,
           "distance": true,
           "candle_size": true,
@@ -29968,29 +29886,9 @@
             "core"
           ]
         },
-        "SHORT": {
-          "score": 1,
-          "core": false,
-          "local": false,
-          "ema": false,
-          "supertrend": false,
-          "rsi": false,
-          "stochastic": false,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": true,
-          "candle_direction": false,
-          "final": false,
-          "failed": [
-            "score<5",
-            "core",
-            "bullish_candle"
-          ]
-        },
         "support_resistance": {
-          "support": 1.4896,
-          "resistance": 1.5207,
+          "support": 2668.36,
+          "resistance": 2698.88,
           "near_support": false,
           "near_resistance": false
         },
@@ -30002,12 +29900,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:46.506113+00:00",
-        "symbol": "XRP",
-        "toobit_symbol": "XRP-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:40.635197+00:00",
+        "symbol": "ETH",
+        "toobit_symbol": "ETH-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      },
+      }
+    ],
+    "XRP": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -39834,76 +39734,55 @@
         "toobit_symbol": "XRP-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "NEAR": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 4.971,
-        "open": 4.962,
-        "high": 4.983,
-        "low": 4.96,
+        "candle_time": 1790710800000,
+        "price": 1.4929,
+        "open": 1.4992,
+        "high": 1.4993,
+        "low": 1.4928,
         "30m": {
           "bull": false,
-          "bear": false,
-          "close": 4.98,
-          "ema20": 5.0713407198637706,
-          "ema200": 5.000514208890424,
+          "bear": true,
+          "close": 1.4993,
+          "ema20": 1.506107216393784,
+          "ema200": 1.512817980177525,
           "st_dir": 1.0
         },
         "15m": {
           "bull": false,
           "bear": true,
-          "close": 4.971,
-          "ema20": 5.01145525445447,
-          "ema200": 5.141863612582161,
+          "close": 1.4929,
+          "ema20": 1.5014939895000483,
+          "ema200": 1.5063826795675996,
           "st_dir": 1.0
         },
         "5m": {
-          "close": 4.971,
-          "ema20": 4.964550088426288,
-          "ema200": 5.110793981791539,
+          "close": 1.4929,
+          "ema20": 1.4966952162132008,
+          "ema200": 1.5069787820205105,
           "st_dir": -1.0,
-          "st_line": 4.869916092645928,
-          "rsi": 50.31892309041471,
-          "rsi_prev": 49.008448115061114,
-          "k": 33.991228070175474,
-          "d": 38.08479532163752,
-          "adx": 22.27189267029214,
-          "di_plus": 19.799588802574043,
-          "di_minus": 18.954110635636038,
-          "atr14": 0.047981558768786466,
-          "distance_from_ema_atr": 0.1344248027621044,
-          "candle_size": 0.009000000000000341
+          "st_line": 1.4887457791002048,
+          "rsi": 43.411492085363626,
+          "rsi_prev": 53.95673938347426,
+          "k": 48.35584263065193,
+          "d": 65.90501987009252,
+          "adx": 21.111431403968506,
+          "di_plus": 16.581502741285636,
+          "di_minus": 22.406484713323948,
+          "atr14": 0.0042937371814215745,
+          "distance_from_ema_atr": 0.8838957888764789,
+          "candle_size": 0.006300000000000194
         },
         "LONG": {
-          "score": 2,
+          "score": 1,
           "core": false,
-          "local": true,
+          "local": false,
           "ema": false,
           "supertrend": true,
           "rsi": false,
           "stochastic": false,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": true,
-          "candle_direction": true,
-          "final": false,
-          "failed": [
-            "score<5",
-            "core"
-          ]
-        },
-        "SHORT": {
-          "score": 3,
-          "core": false,
-          "local": false,
-          "ema": true,
-          "supertrend": false,
-          "rsi": false,
-          "stochastic": true,
           "adx_di": false,
           "distance": true,
           "candle_size": true,
@@ -39913,12 +39792,30 @@
           "failed": [
             "score<5",
             "core",
-            "bullish_candle"
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
+          "score": 7,
+          "core": false,
+          "local": true,
+          "ema": true,
+          "supertrend": false,
+          "rsi": true,
+          "stochastic": true,
+          "adx_di": false,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": true,
+          "final": false,
+          "failed": [
+            "core"
           ]
         },
         "support_resistance": {
-          "support": 4.912,
-          "resistance": 5.02,
+          "support": 1.4755,
+          "resistance": 1.5029,
           "near_support": false,
           "near_resistance": false
         },
@@ -39930,12 +39827,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:47.328728+00:00",
-        "symbol": "NEAR",
-        "toobit_symbol": "NEAR-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:41.384285+00:00",
+        "symbol": "XRP",
+        "toobit_symbol": "XRP-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      },
+      }
+    ],
+    "NEAR": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -49754,55 +49653,72 @@
         "toobit_symbol": "NEAR-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "SUI": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 1.1673,
-        "open": 1.1669,
-        "high": 1.1682,
-        "low": 1.1641,
+        "candle_time": 1790710800000,
+        "price": 5.048,
+        "open": 5.071,
+        "high": 5.08,
+        "low": 5.046,
         "30m": {
           "bull": false,
           "bear": false,
-          "close": 1.1661,
-          "ema20": 1.1771145811469972,
-          "ema200": 1.1588928998922432,
-          "st_dir": 1.0
+          "close": 5.064,
+          "ema20": 4.919854055771616,
+          "ema200": 4.920721032161002,
+          "st_dir": -1.0
         },
         "15m": {
-          "bull": false,
-          "bear": true,
-          "close": 1.1673,
-          "ema20": 1.166882784594516,
-          "ema200": 1.199453233179102,
-          "st_dir": 1.0
+          "bull": true,
+          "bear": false,
+          "close": 5.048,
+          "ema20": 4.9781150672831584,
+          "ema200": 4.93332745432168,
+          "st_dir": -1.0
         },
         "5m": {
-          "close": 1.1673,
-          "ema20": 1.1637613104489322,
-          "ema200": 1.1907811886606443,
+          "close": 5.048,
+          "ema20": 5.040243863793288,
+          "ema200": 4.8821700516355335,
           "st_dir": -1.0,
-          "st_line": 1.1453796644222494,
-          "rsi": 52.863024774181405,
-          "rsi_prev": 52.60916012371313,
-          "k": 58.747044917257774,
-          "d": 58.51063829787236,
-          "adx": 20.466805201111836,
-          "di_plus": 23.356876126306375,
-          "di_minus": 15.377937511659757,
-          "atr14": 0.008658408116060194,
-          "distance_from_ema_atr": 0.40869978680076813,
-          "candle_size": 0.00039999999999995595
+          "st_line": 4.989068733425658,
+          "rsi": 53.950498608476984,
+          "rsi_prev": 57.85365451718383,
+          "k": 42.588817549491694,
+          "d": 52.53346929078521,
+          "adx": 32.2703867284671,
+          "di_plus": 30.681020227904675,
+          "di_minus": 18.014118720333414,
+          "atr14": 0.041855778418070026,
+          "distance_from_ema_atr": 0.18530622293632315,
+          "candle_size": 0.022999999999999687
         },
         "LONG": {
-          "score": 3,
+          "score": 5,
           "core": false,
           "local": true,
-          "ema": false,
+          "ema": true,
           "supertrend": true,
+          "rsi": false,
+          "stochastic": false,
+          "adx_di": true,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": false,
+          "final": false,
+          "failed": [
+            "core",
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
+          "score": 1,
+          "core": false,
+          "local": false,
+          "ema": false,
+          "supertrend": false,
           "rsi": false,
           "stochastic": true,
           "adx_di": false,
@@ -49816,29 +49732,9 @@
             "core"
           ]
         },
-        "SHORT": {
-          "score": 2,
-          "core": false,
-          "local": false,
-          "ema": true,
-          "supertrend": false,
-          "rsi": false,
-          "stochastic": false,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": true,
-          "candle_direction": false,
-          "final": false,
-          "failed": [
-            "score<5",
-            "core",
-            "bullish_candle"
-          ]
-        },
         "support_resistance": {
-          "support": 1.151,
-          "resistance": 1.1792,
+          "support": 4.762,
+          "resistance": 5.165,
           "near_support": false,
           "near_resistance": false
         },
@@ -49850,12 +49746,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:48.054916+00:00",
-        "symbol": "SUI",
-        "toobit_symbol": "SUI-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:42.154462+00:00",
+        "symbol": "NEAR",
+        "toobit_symbol": "NEAR-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      },
+      }
+    ],
+    "SUI": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -59679,57 +59577,76 @@
         "toobit_symbol": "SUI-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "ADA": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 0.2484,
-        "open": 0.248,
-        "high": 0.2487,
-        "low": 0.2478,
+        "candle_time": 1790710800000,
+        "price": 1.1476,
+        "open": 1.1541,
+        "high": 1.1547,
+        "low": 1.1476,
         "30m": {
           "bull": false,
           "bear": false,
-          "close": 0.248,
-          "ema20": 0.2466027122437148,
-          "ema200": 0.25100630777050936,
+          "close": 1.1532,
+          "ema20": 1.1488832273451948,
+          "ema200": 1.1512962669735012,
           "st_dir": 1.0
         },
         "15m": {
           "bull": false,
-          "bear": false,
-          "close": 0.2484,
-          "ema20": 0.2463874349597425,
-          "ema200": 0.25110551291273897,
-          "st_dir": -1.0
+          "bear": true,
+          "close": 1.1476,
+          "ema20": 1.1471893047368487,
+          "ema200": 1.1677534802539127,
+          "st_dir": 1.0
         },
         "5m": {
-          "close": 0.2484,
-          "ema20": 0.24676576817153525,
-          "ema200": 0.24752469228301172,
+          "close": 1.1476,
+          "ema20": 1.1487589007874837,
+          "ema200": 1.150065495478407,
           "st_dir": -1.0,
-          "st_line": 0.24356494271055756,
-          "rsi": 57.2075522191491,
-          "rsi_prev": 55.9964976669881,
-          "k": 62.499999999999886,
-          "d": 61.631944444444294,
-          "adx": 21.23104480264854,
-          "di_plus": 27.51740016623061,
-          "di_minus": 15.672456579307388,
-          "atr14": 0.0016999780344564958,
-          "distance_from_ema_atr": 0.9613252614685927,
-          "candle_size": 0.00040000000000001146
+          "st_line": 1.14063043873782,
+          "rsi": 50.10168462309184,
+          "rsi_prev": 59.86043272892973,
+          "k": 59.256627986963814,
+          "d": 69.26589050767414,
+          "adx": 25.744770019145864,
+          "di_plus": 19.3631253998131,
+          "di_minus": 16.89743954337438,
+          "atr14": 0.005131328502440352,
+          "distance_from_ema_atr": 0.22584809897330854,
+          "candle_size": 0.00649999999999995
         },
         "LONG": {
-          "score": 4,
+          "score": 2,
           "core": false,
-          "local": true,
+          "local": false,
           "ema": false,
           "supertrend": true,
-          "rsi": true,
-          "stochastic": true,
+          "rsi": false,
+          "stochastic": false,
+          "adx_di": true,
+          "distance": true,
+          "candle_size": true,
+          "sr": false,
+          "candle_direction": false,
+          "final": false,
+          "failed": [
+            "score<5",
+            "core",
+            "near_resistance",
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
+          "score": 3,
+          "core": false,
+          "local": true,
+          "ema": true,
+          "supertrend": false,
+          "rsi": false,
+          "stochastic": false,
           "adx_di": false,
           "distance": true,
           "candle_size": true,
@@ -59741,31 +59658,11 @@
             "core"
           ]
         },
-        "SHORT": {
-          "score": 1,
-          "core": false,
-          "local": false,
-          "ema": true,
-          "supertrend": false,
-          "rsi": false,
-          "stochastic": false,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": true,
-          "candle_direction": false,
-          "final": false,
-          "failed": [
-            "score<5",
-            "core",
-            "bullish_candle"
-          ]
-        },
         "support_resistance": {
-          "support": 0.244,
-          "resistance": 0.2496,
+          "support": 1.1268,
+          "resistance": 1.1389,
           "near_support": false,
-          "near_resistance": false
+          "near_resistance": true
         },
         "signal": {
           "direction": null,
@@ -59775,12 +59672,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:48.787996+00:00",
-        "symbol": "ADA",
-        "toobit_symbol": "ADA-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:42.796191+00:00",
+        "symbol": "SUI",
+        "toobit_symbol": "SUI-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      },
+      }
+    ],
+    "ADA": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -69612,73 +69511,53 @@
         "toobit_symbol": "ADA-SWAP-USDT",
         "active_before_new_signal": true,
         "state_result": "ACTIVE_TRADE"
-      }
-    ],
-    "LINK": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 15.217,
-        "open": 15.202,
-        "high": 15.248,
-        "low": 15.187,
+        "candle_time": 1790710800000,
+        "price": 0.2439,
+        "open": 0.2452,
+        "high": 0.2452,
+        "low": 0.2439,
         "30m": {
-          "bull": true,
-          "bear": false,
-          "close": 15.177,
-          "ema20": 14.435897368385247,
-          "ema200": 13.87293730631696,
-          "st_dir": -1.0
+          "bull": false,
+          "bear": true,
+          "close": 0.2446,
+          "ema20": 0.24646848412683017,
+          "ema200": 0.24878572574092675,
+          "st_dir": 1.0
         },
         "15m": {
-          "bull": true,
-          "bear": false,
-          "close": 15.217,
-          "ema20": 14.719684707725605,
-          "ema200": 14.150144098653746,
-          "st_dir": -1.0
+          "bull": false,
+          "bear": true,
+          "close": 0.2439,
+          "ema20": 0.2449193316087206,
+          "ema200": 0.24850672527998524,
+          "st_dir": 1.0
         },
         "5m": {
-          "close": 15.217,
-          "ema20": 15.05456692171409,
-          "ema200": 14.290824976890692,
+          "close": 0.2439,
+          "ema20": 0.2442913743996829,
+          "ema200": 0.2471485346729028,
           "st_dir": -1.0,
-          "st_line": 14.88182629152058,
-          "rsi": 61.66603505017545,
-          "rsi_prev": 61.15730039245422,
-          "k": 50.41079812206586,
-          "d": 53.856859926170635,
-          "adx": 43.129354778381,
-          "di_plus": 33.06853332698203,
-          "di_minus": 15.40208832673804,
-          "atr14": 0.1404763383753255,
-          "distance_from_ema_atr": 1.1563020517513882,
-          "candle_size": 0.015000000000000568
+          "st_line": 0.24229283694207435,
+          "rsi": 47.728078103914505,
+          "rsi_prev": 58.484631101742636,
+          "k": 53.24074074074087,
+          "d": 65.17489711934155,
+          "adx": 21.686339297097664,
+          "di_plus": 16.375980051372842,
+          "di_minus": 19.479329327017563,
+          "atr14": 0.0009918802481158368,
+          "distance_from_ema_atr": 0.39457827739421936,
+          "candle_size": 0.0012999999999999956
         },
         "LONG": {
-          "score": 8,
-          "core": true,
-          "local": true,
-          "ema": true,
-          "supertrend": true,
-          "rsi": true,
-          "stochastic": false,
-          "adx_di": true,
-          "distance": true,
-          "candle_size": true,
-          "sr": false,
-          "candle_direction": true,
-          "final": false,
-          "failed": [
-            "near_resistance"
-          ]
-        },
-        "SHORT": {
-          "score": 0,
+          "score": 1,
           "core": false,
           "local": false,
           "ema": false,
-          "supertrend": false,
+          "supertrend": true,
           "rsi": false,
           "stochastic": false,
           "adx_di": false,
@@ -69690,14 +69569,32 @@
           "failed": [
             "score<5",
             "core",
-            "bullish_candle"
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
+          "score": 5,
+          "core": false,
+          "local": true,
+          "ema": true,
+          "supertrend": false,
+          "rsi": false,
+          "stochastic": false,
+          "adx_di": false,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": true,
+          "final": false,
+          "failed": [
+            "core"
           ]
         },
         "support_resistance": {
-          "support": 14.901,
-          "resistance": 14.871,
+          "support": 0.2396,
+          "resistance": 0.2456,
           "near_support": false,
-          "near_resistance": true
+          "near_resistance": false
         },
         "signal": {
           "direction": null,
@@ -69707,12 +69604,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:49.520251+00:00",
-        "symbol": "LINK",
-        "toobit_symbol": "LINK-SWAP-USDT",
-        "active_before_new_signal": false,
-        "state_result": "NO_V24_SIGNAL"
-      },
+        "scan_time_utc": "2026-09-29T19:45:43.548639+00:00",
+        "symbol": "ADA",
+        "toobit_symbol": "ADA-SWAP-USDT",
+        "active_before_new_signal": true,
+        "state_result": "ACTIVE_TRADE"
+      }
+    ],
+    "LINK": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -79540,74 +79439,52 @@
         "toobit_symbol": "LINK-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "AVAX": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 10.505,
-        "open": 10.495,
-        "high": 10.521,
-        "low": 10.491,
+        "candle_time": 1790710800000,
+        "price": 14.611,
+        "open": 14.666,
+        "high": 14.666,
+        "low": 14.61,
         "30m": {
           "bull": false,
           "bear": false,
-          "close": 10.484,
-          "ema20": 10.468844387631908,
-          "ema200": 10.682572399131068,
+          "close": 14.638,
+          "ema20": 14.870311999388916,
+          "ema200": 14.321741578770881,
           "st_dir": 1.0
         },
         "15m": {
           "bull": false,
-          "bear": false,
-          "close": 10.505,
-          "ema20": 10.43549360735528,
-          "ema200": 10.676136318961124,
-          "st_dir": -1.0
+          "bear": true,
+          "close": 14.611,
+          "ema20": 14.733456410657551,
+          "ema200": 14.741510512734655,
+          "st_dir": 1.0
         },
         "5m": {
-          "close": 10.505,
-          "ema20": 10.45019121555431,
-          "ema200": 10.5365982799519,
-          "st_dir": -1.0,
-          "st_line": 10.338169461134079,
-          "rsi": 56.57149243314052,
-          "rsi_prev": 55.78260466075934,
-          "k": 52.74584929757348,
-          "d": 52.85573302814681,
-          "adx": 23.791024511447855,
-          "di_plus": 29.344235819441952,
-          "di_minus": 16.048275585169247,
-          "atr14": 0.061990368621195814,
-          "distance_from_ema_atr": 0.8841500004720068,
-          "candle_size": 0.010000000000001563
+          "close": 14.611,
+          "ema20": 14.633950213693613,
+          "ema200": 14.973315317402289,
+          "st_dir": 1.0,
+          "st_line": 14.696580931217873,
+          "rsi": 45.23803473667699,
+          "rsi_prev": 53.07973150746066,
+          "k": 74.79674796747953,
+          "d": 79.04245709123735,
+          "adx": 18.624429154346252,
+          "di_plus": 19.347129573624336,
+          "di_minus": 22.95694394819704,
+          "atr14": 0.050765662150086835,
+          "distance_from_ema_atr": 0.45208144091099356,
+          "candle_size": 0.054999999999999716
         },
         "LONG": {
-          "score": 3,
-          "core": false,
-          "local": true,
-          "ema": false,
-          "supertrend": true,
-          "rsi": true,
-          "stochastic": false,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": false,
-          "candle_direction": true,
-          "final": false,
-          "failed": [
-            "score<5",
-            "core",
-            "near_resistance"
-          ]
-        },
-        "SHORT": {
-          "score": 1,
+          "score": 0,
           "core": false,
           "local": false,
-          "ema": true,
+          "ema": false,
           "supertrend": false,
           "rsi": false,
           "stochastic": false,
@@ -79620,14 +79497,33 @@
           "failed": [
             "score<5",
             "core",
-            "bullish_candle"
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
+          "score": 4,
+          "core": false,
+          "local": true,
+          "ema": true,
+          "supertrend": true,
+          "rsi": false,
+          "stochastic": false,
+          "adx_di": false,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": true,
+          "final": false,
+          "failed": [
+            "score<5",
+            "core"
           ]
         },
         "support_resistance": {
-          "support": 10.354,
-          "resistance": 10.535,
+          "support": 14.553,
+          "resistance": 14.676,
           "near_support": false,
-          "near_resistance": true
+          "near_resistance": false
         },
         "signal": {
           "direction": null,
@@ -79637,12 +79533,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:50.261806+00:00",
-        "symbol": "AVAX",
-        "toobit_symbol": "AVAX-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:44.208929+00:00",
+        "symbol": "LINK",
+        "toobit_symbol": "LINK-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      },
+      }
+    ],
+    "AVAX": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -89472,48 +89370,46 @@
         "toobit_symbol": "AVAX-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "BNB": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 770.24,
-        "open": 770.36,
-        "high": 770.74,
-        "low": 769.78,
+        "candle_time": 1790710800000,
+        "price": 11.298,
+        "open": 11.373,
+        "high": 11.375,
+        "low": 11.298,
         "30m": {
           "bull": false,
           "bear": false,
-          "close": 769.43,
-          "ema20": 765.6819700296946,
-          "ema200": 773.8652405841717,
+          "close": 11.343,
+          "ema20": 11.279400692984478,
+          "ema200": 10.785186941619365,
           "st_dir": 1.0
         },
         "15m": {
           "bull": false,
           "bear": false,
-          "close": 770.24,
-          "ema20": 766.1729404995725,
-          "ema200": 771.2879621008437,
-          "st_dir": -1.0
+          "close": 11.298,
+          "ema20": 11.28428776938832,
+          "ema200": 10.948971773697062,
+          "st_dir": 1.0
         },
         "5m": {
-          "close": 770.24,
-          "ema20": 768.2448016151237,
-          "ema200": 767.0509574085659,
+          "close": 11.298,
+          "ema20": 11.282451988354246,
+          "ema200": 11.196393751394309,
           "st_dir": -1.0,
-          "st_line": 765.8648321547221,
-          "rsi": 58.56337240314828,
-          "rsi_prev": 58.97744246412182,
-          "k": 56.31188118811923,
-          "d": 55.027912305191414,
-          "adx": 24.481551893725584,
-          "di_plus": 30.289788588057828,
-          "di_minus": 17.631509337261317,
-          "atr14": 1.909031563627018,
-          "distance_from_ema_atr": 1.0451364047043625,
-          "candle_size": 0.12000000000000455
+          "st_line": 11.22410059251777,
+          "rsi": 54.312781303620916,
+          "rsi_prev": 68.18407876592724,
+          "k": 78.71162973759256,
+          "d": 86.15979535685538,
+          "adx": 29.452665226630415,
+          "di_plus": 25.784968653747352,
+          "di_minus": 16.28141303573888,
+          "atr14": 0.050523857569170896,
+          "distance_from_ema_atr": 0.3077360358810135,
+          "candle_size": 0.07499999999999929
         },
         "LONG": {
           "score": 4,
@@ -89522,8 +89418,8 @@
           "ema": true,
           "supertrend": true,
           "rsi": false,
-          "stochastic": true,
-          "adx_di": false,
+          "stochastic": false,
+          "adx_di": true,
           "distance": true,
           "candle_size": true,
           "sr": false,
@@ -89556,8 +89452,8 @@
           ]
         },
         "support_resistance": {
-          "support": 765.59,
-          "resistance": 771.02,
+          "support": 11.025,
+          "resistance": 11.295,
           "near_support": false,
           "near_resistance": true
         },
@@ -89569,12 +89465,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:50.997033+00:00",
-        "symbol": "BNB",
-        "toobit_symbol": "BNB-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:44.932048+00:00",
+        "symbol": "AVAX",
+        "toobit_symbol": "AVAX-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      },
+      }
+    ],
+    "BNB": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -99443,74 +99341,53 @@
         "toobit_symbol": "BNB-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "UNI": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 8.903,
-        "open": 8.89,
-        "high": 8.915,
-        "low": 8.888,
+        "candle_time": 1790710800000,
+        "price": 754.31,
+        "open": 755.96,
+        "high": 755.97,
+        "low": 754.31,
         "30m": {
           "bull": false,
           "bear": true,
-          "close": 8.88,
-          "ema20": 8.970862701178943,
-          "ema200": 9.42623422675298,
+          "close": 756.21,
+          "ema20": 758.7542351078536,
+          "ema200": 767.525285577996,
           "st_dir": 1.0
         },
         "15m": {
           "bull": false,
           "bear": true,
-          "close": 8.903,
-          "ema20": 8.904969904871372,
-          "ema200": 9.396610027083936,
+          "close": 754.31,
+          "ema20": 756.5389754749789,
+          "ema200": 764.7190273114387,
           "st_dir": 1.0
         },
         "5m": {
-          "close": 8.903,
-          "ema20": 8.894952408553497,
-          "ema200": 9.08084626602323,
+          "close": 754.31,
+          "ema20": 755.5991609432373,
+          "ema200": 760.4512785966974,
           "st_dir": -1.0,
-          "st_line": 8.762800669454275,
-          "rsi": 51.343780014374545,
-          "rsi_prev": 49.90740662628909,
-          "k": 43.99399399399425,
-          "d": 42.69269269269296,
-          "adx": 18.2012824043328,
-          "di_plus": 23.61515979694033,
-          "di_minus": 19.83553346373172,
-          "atr14": 0.05659893193545535,
-          "distance_from_ema_atr": 0.14218627757288868,
-          "candle_size": 0.0129999999999999
+          "st_line": 753.6035405628529,
+          "rsi": 40.895231201788114,
+          "rsi_prev": 52.51842668442652,
+          "k": 37.03703703703798,
+          "d": 52.469135802470475,
+          "adx": 19.63369101343061,
+          "di_plus": 19.269664224272844,
+          "di_minus": 26.49704576324657,
+          "atr14": 1.0204607156631251,
+          "distance_from_ema_atr": 1.2633126620651927,
+          "candle_size": 1.650000000000091
         },
         "LONG": {
-          "score": 2,
-          "core": false,
-          "local": true,
-          "ema": false,
-          "supertrend": true,
-          "rsi": false,
-          "stochastic": false,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": true,
-          "candle_direction": true,
-          "final": false,
-          "failed": [
-            "score<5",
-            "core"
-          ]
-        },
-        "SHORT": {
-          "score": 4,
+          "score": 1,
           "core": false,
           "local": false,
-          "ema": true,
-          "supertrend": false,
+          "ema": false,
+          "supertrend": true,
           "rsi": false,
           "stochastic": false,
           "adx_di": false,
@@ -99522,12 +99399,30 @@
           "failed": [
             "score<5",
             "core",
-            "bullish_candle"
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
+          "score": 7,
+          "core": false,
+          "local": true,
+          "ema": true,
+          "supertrend": false,
+          "rsi": true,
+          "stochastic": true,
+          "adx_di": false,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": true,
+          "final": false,
+          "failed": [
+            "core"
           ]
         },
         "support_resistance": {
-          "support": 8.798,
-          "resistance": 9.02,
+          "support": 750.85,
+          "resistance": 757.31,
           "near_support": false,
           "near_resistance": false
         },
@@ -99539,12 +99434,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:51.916306+00:00",
-        "symbol": "UNI",
-        "toobit_symbol": "UNI-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:45.753178+00:00",
+        "symbol": "BNB",
+        "toobit_symbol": "BNB-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      },
+      }
+    ],
+    "UNI": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -109350,55 +109247,73 @@
         "toobit_symbol": "UNI-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      }
-    ],
-    "ARB": [
+      },
       {
         "status": "NO_SIGNAL",
-        "candle_time": 1790617200000,
-        "price": 0.20549,
-        "open": 0.20476,
-        "high": 0.20559,
-        "low": 0.20463,
+        "candle_time": 1790710800000,
+        "price": 8.967,
+        "open": 8.999,
+        "high": 8.999,
+        "low": 8.967,
         "30m": {
           "bull": false,
-          "bear": true,
-          "close": 0.20528,
-          "ema20": 0.20749070764509736,
-          "ema200": 0.2195441160175711,
+          "bear": false,
+          "close": 9.004,
+          "ema20": 8.929947647224644,
+          "ema200": 9.1993708093376,
           "st_dir": 1.0
         },
         "15m": {
           "bull": false,
           "bear": true,
-          "close": 0.20549,
-          "ema20": 0.20549153034276926,
-          "ema200": 0.21719568374767448,
+          "close": 8.967,
+          "ema20": 8.937863510606116,
+          "ema200": 9.050117272421742,
           "st_dir": 1.0
         },
         "5m": {
-          "close": 0.20549,
-          "ema20": 0.2048474615015681,
-          "ema200": 0.2100456832644394,
+          "close": 8.967,
+          "ema20": 8.971201637127221,
+          "ema200": 8.910854371860973,
           "st_dir": -1.0,
-          "st_line": 0.20207437044230805,
-          "rsi": 52.7559556977315,
-          "rsi_prev": 50.1924638185441,
-          "k": 42.51592356687917,
-          "d": 44.257856033059305,
-          "adx": 15.228051491558773,
-          "di_plus": 25.639257294492758,
-          "di_minus": 23.36497210693679,
-          "atr14": 0.0015188379436737727,
-          "distance_from_ema_atr": 0.4230461196391563,
-          "candle_size": 0.0007300000000000084
+          "st_line": 8.916707731207646,
+          "rsi": 51.976611220720216,
+          "rsi_prev": 59.2772575991786,
+          "k": 50.78976034858425,
+          "d": 63.578950098558074,
+          "adx": 26.263431865589528,
+          "di_plus": 22.531548241245762,
+          "di_minus": 18.303891412535467,
+          "atr14": 0.0362490989711429,
+          "distance_from_ema_atr": 0.11591011215382943,
+          "candle_size": 0.03200000000000003
         },
         "LONG": {
+          "score": 3,
+          "core": false,
+          "local": false,
+          "ema": true,
+          "supertrend": true,
+          "rsi": false,
+          "stochastic": false,
+          "adx_di": true,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": false,
+          "final": false,
+          "failed": [
+            "score<5",
+            "core",
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
           "score": 2,
           "core": false,
           "local": true,
           "ema": false,
-          "supertrend": true,
+          "supertrend": false,
           "rsi": false,
           "stochastic": false,
           "adx_di": false,
@@ -109412,28 +109327,9 @@
             "core"
           ]
         },
-        "SHORT": {
-          "score": 5,
-          "core": false,
-          "local": false,
-          "ema": true,
-          "supertrend": false,
-          "rsi": false,
-          "stochastic": true,
-          "adx_di": false,
-          "distance": true,
-          "candle_size": true,
-          "sr": true,
-          "candle_direction": false,
-          "final": false,
-          "failed": [
-            "core",
-            "bullish_candle"
-          ]
-        },
         "support_resistance": {
-          "support": 0.20242,
-          "resistance": 0.20683,
+          "support": 8.773,
+          "resistance": 9.051,
           "near_support": false,
           "near_resistance": false
         },
@@ -109445,12 +109341,14 @@
           "tp1": null,
           "tp2": null
         },
-        "scan_time_utc": "2026-09-28T17:49:52.726139+00:00",
-        "symbol": "ARB",
-        "toobit_symbol": "ARB-SWAP-USDT",
+        "scan_time_utc": "2026-09-29T19:45:46.492967+00:00",
+        "symbol": "UNI",
+        "toobit_symbol": "UNI-SWAP-USDT",
         "active_before_new_signal": false,
         "state_result": "NO_V24_SIGNAL"
-      },
+      }
+    ],
+    "ARB": [
       {
         "status": "NO_SIGNAL",
         "candle_time": 1790617800000,
@@ -119261,6 +119159,106 @@
           "tp2": null
         },
         "scan_time_utc": "2026-09-29T19:30:36.516501+00:00",
+        "symbol": "ARB",
+        "toobit_symbol": "ARB-SWAP-USDT",
+        "active_before_new_signal": false,
+        "state_result": "NO_V24_SIGNAL"
+      },
+      {
+        "status": "NO_SIGNAL",
+        "candle_time": 1790710800000,
+        "price": 0.20589,
+        "open": 0.20666,
+        "high": 0.20667,
+        "low": 0.20588,
+        "30m": {
+          "bull": false,
+          "bear": false,
+          "close": 0.20703,
+          "ema20": 0.20669704253924456,
+          "ema200": 0.21328298012876426,
+          "st_dir": 1.0
+        },
+        "15m": {
+          "bull": false,
+          "bear": true,
+          "close": 0.20589,
+          "ema20": 0.20672854698808935,
+          "ema200": 0.20912865829403662,
+          "st_dir": 1.0
+        },
+        "5m": {
+          "close": 0.20589,
+          "ema20": 0.2066869138818051,
+          "ema200": 0.2061092999931135,
+          "st_dir": -1.0,
+          "st_line": 0.20453523365112553,
+          "rsi": 44.02941956064138,
+          "rsi_prev": 50.195722873335384,
+          "k": 17.971636098239085,
+          "d": 28.770647644090094,
+          "adx": 25.208714995902735,
+          "di_plus": 21.705462907830377,
+          "di_minus": 19.609820941257805,
+          "atr14": 0.0009076010383764696,
+          "distance_from_ema_atr": 0.8780442596569115,
+          "candle_size": 0.0007700000000000207
+        },
+        "LONG": {
+          "score": 3,
+          "core": false,
+          "local": false,
+          "ema": true,
+          "supertrend": true,
+          "rsi": false,
+          "stochastic": false,
+          "adx_di": true,
+          "distance": true,
+          "candle_size": true,
+          "sr": true,
+          "candle_direction": false,
+          "final": false,
+          "failed": [
+            "score<5",
+            "core",
+            "bearish_candle"
+          ]
+        },
+        "SHORT": {
+          "score": 4,
+          "core": false,
+          "local": true,
+          "ema": false,
+          "supertrend": false,
+          "rsi": true,
+          "stochastic": true,
+          "adx_di": false,
+          "distance": true,
+          "candle_size": true,
+          "sr": false,
+          "candle_direction": true,
+          "final": false,
+          "failed": [
+            "score<5",
+            "core",
+            "near_support"
+          ]
+        },
+        "support_resistance": {
+          "support": 0.20628,
+          "resistance": 0.20804,
+          "near_support": true,
+          "near_resistance": false
+        },
+        "signal": {
+          "direction": null,
+          "score": null,
+          "entry": null,
+          "sl": null,
+          "tp1": null,
+          "tp2": null
+        },
+        "scan_time_utc": "2026-09-29T19:45:47.147072+00:00",
         "symbol": "ARB",
         "toobit_symbol": "ARB-SWAP-USDT",
         "active_before_new_signal": false,
